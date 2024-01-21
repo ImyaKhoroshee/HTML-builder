@@ -15,9 +15,9 @@ async function getFilesfromDir(pathToDir) {
   })
 }
 const displayFileData = (fileSize, pathToFile) => {
-  const sizeInKb = fileSize / 1024;
+  const sizeInKb = Math.ceil(fileSize / 1024);
   const extention = path.extname(pathToFile).substring(1);
   const basename = path.basename(pathToFile, `.${extention}`);
-  console.log(`${basename} - ${extention} - ${sizeInKb.toFixed(3)}Kb`);
+  console.log(`${basename} - ${extention} - ${sizeInKb}kb`);
 }
 getFilesfromDir(pathToDir);
