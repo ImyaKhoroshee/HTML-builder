@@ -1,5 +1,5 @@
-const path = require('path');
-const { readdir, stat } = require('fs/promises');
+const path = require("path");
+const { readdir, stat } = require("fs/promises");
 const pathToDir = path.join(__dirname, "secret-folder");
 
 async function getFilesfromDir(pathToDir) {
