@@ -1,6 +1,10 @@
 const { readdir, copyFile, stat, rm, mkdir } = require("node:fs/promises");
 const path = require("path");
 
+const sourcePath = path.join(__dirname, "files");
+const destinationPath = path.join(__dirname, "files-copy");
+copyDir(sourcePath, destinationPath);
+
 async function copyDir(source, destination) {
   /* force means not to consider errors as dir may not exist */
   await rm(destination, { recursive: true, force: true });
@@ -23,8 +27,5 @@ async function copyDir(source, destination) {
   });
 }
 
-const sourcePath = path.join(__dirname, "files");
-const destinationPath = path.join(__dirname, "files-copy");
-copyDir(sourcePath, destinationPath);
 
 
