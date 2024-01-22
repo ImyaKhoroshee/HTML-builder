@@ -2,7 +2,7 @@ const path = require("path");
 const { readdir, stat } = require("fs/promises");
 const pathToDir = path.join(__dirname, "secret-folder");
 
-async function getFilesfromDir(pathToDir) {
+async function getFilesFromDir(pathToDir) {
   const dirContent = await readdir(pathToDir);
 
   dirContent.forEach(async (content) => {
@@ -16,8 +16,8 @@ async function getFilesfromDir(pathToDir) {
 }
 const displayFileData = (fileSize, pathToFile) => {
   const sizeInKb = Math.ceil(fileSize / 1024);
-  const extention = path.extname(pathToFile).substring(1);
-  const basename = path.basename(pathToFile, `.${extention}`);
-  console.log(`${basename} - ${extention} - ${sizeInKb}kb`);
+  const extension = path.extname(pathToFile).substring(1);
+  const basename = path.basename(pathToFile, `.${extension}`);
+  console.log(`${basename} - ${extension} - ${sizeInKb}kb`);
 }
-getFilesfromDir(pathToDir);
+getFilesFromDir(pathToDir);
